@@ -45,7 +45,9 @@ Untuk menjalankan aplikasi ini secara maksimal di server atau lingkungan lokal, 
 ## Struktur Hak Akses
 
 Sistem membedakan akses pengguna menjadi beberapa peran (*roles*):
-1. **Panitia / Admin Pusat** (`admin@thisapp.com`)
+1. **Panitia / Admin Pusat** 
+   - **User:** `admin@thisapp.com`
+   - **Password:** `admin1234`
 2. **Dosen Pembimbing Lapangan (DPL)**
 3. **Mahasiswa**
 
