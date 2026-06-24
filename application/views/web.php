@@ -1,16 +1,15 @@
-<div class="page-heading">
-    <div class="row">
-        <div class="col-3 col-lg-1 col-md-2">
-            <img src="<?= base_url('assets/img/logoapp.png') ?>" width="100%">
-        </div>
-        <div class="col-9 col-lg-11 col-md-10">
-            <h3>Daftar <?= $this->config->item('app_singkatan') ?> Tahun <?= date("Y") ?></h3>
-            <div class="buttons mt-3">
-                <a href="#" class="btn btn-success rounded-pill act-kelompok" data-kategori="teraktif"><i class="bi bi-arrow-up-right"></i> Kelompok Teraktif</a>
-                <!--
-                <a href="#" class="btn btn-primary rounded-pill act-aktifitas" data-kategori="trending"><i class="bi bi-star"></i> Aktifitas Trending</a>
-                -->
-                <a href="#" class="btn btn-info rounded-pill act-aktifitas" data-kategori="best"><i class="bi bi-graph-up-arrow"></i> Aktifitas Terbaik</a>
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm position-relative overflow-hidden" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
+    <div class="container-fluid py-3 position-relative" style="z-index: 2;">
+        <div class="row align-items-center">
+            <div class="col-md-2 text-center text-md-start mb-4 mb-md-0">
+                <img src="<?= base_url('assets/img/logoapp.png') ?>" alt="Logo" class="img-fluid" style="max-height: 120px;">
+            </div>
+            <div class="col-md-10">
+                <h1 class="display-5 fw-bold text-primary">Portal <?= $this->config->item('app_singkatan') ?></h1>
+                <p class="col-md-10 fs-5 text-muted">Platform terintegrasi pengelolaan Kuliah Kerja Nyata (<?= $this->config->item('app_singkatan') ?>). Silakan jelajahi informasi pendaftaran, kegiatan mahasiswa, dan berita terbaru.</p>
+                <div class="d-flex gap-3 mt-4">
+                    <a href="<?= base_url('login') ?>" class="btn btn-primary btn-lg rounded-pill shadow-sm px-4"><i class="bi bi-box-arrow-in-right"></i> Masuk Sistem</a>
+                </div>
             </div>
         </div>
     </div>
@@ -68,35 +67,38 @@
                                     $urlberita = base_url("web/detailberita/" . $dp['slug']);
                                 ?>
 
-                                    <div class="col-xl-6 col-md-6 col-sm-12">
-                                        <div class="card">
-                                            <div class="card-content">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item"><i class="bi bi-person-circle"></i> <?= $dp['nama'] ?> <span style="font-size:11px">publish : <?= $dp['waktu'] ?></span></li>
-                                                </ul>
-                                                <a href="<?= $urlberita ?>">
+                                    <div class="col-xl-6 col-md-6 col-sm-12 mb-4">
+                                        <div class="card h-100 shadow-sm border-0">
+                                            <a href="<?= $urlberita ?>">
+                                                <?php if ($dp['thumbnail']) { ?>
+                                                    <img src="<?= base_url($dp['thumbnail']) ?>" class="card-img-top" style="height: 200px; object-fit: cover;" alt="<?= $dp['judul'] ?>">
+                                                <?php } else { ?>
+                                                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                                        <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
+                                                    </div>
+                                                <?php } ?>
+                                            </a>
+                                            <div class="card-body d-flex flex-column">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <span class="badge bg-light-primary text-primary" style="font-size:11px;">
+                                                        <i class="bi bi-person-circle"></i> <?= $dp['nama'] ?>
+                                                    </span>
+                                                    <span class="text-muted" style="font-size:11px;">
+                                                        <i class="bi bi-clock"></i> <?= waktu_lalu($dp['waktu']) ?>
+                                                    </span>
+                                                </div>
+                                                <h5 class="card-title"><a href="<?= $urlberita ?>" class="text-dark"><?= $dp['judul'] ?></a></h5>
+                                                <p class="card-text text-muted flex-grow-1" style="font-size: 14px;">
                                                     <?php
-                                                    if ($dp['thumbnail']) {
-                                                        echo "<img src='" . base_url($dp['thumbnail']) . "' class='card-img-top img-fluid' >";
+                                                    if (count($berita) > 25) {
+                                                        echo implode(" ", array_slice($berita, 0, 25)) . "...";
+                                                    } else {
+                                                        echo $dp['detail'];
                                                     }
                                                     ?>
-                                                </a>
-                                                <span class="badge bg-secondary" style='font-size:11px;'><i class="bi bi-clock"></i> <?= waktu_lalu($dp['waktu']) ?></span>
-                                                <div class="card-body">
-
-                                                    <h5 class="card-title"><a href="<?= $urlberita ?>"><?= $dp['judul'] ?></a></h5>
-                                                    <p class="card-text">
-                                                        <?php
-                                                        if (count($berita) > 40) {
-                                                            for ($i = 0; $i <= 40; $i++)
-                                                                echo $berita[$i] . " ";
-                                                            echo "...";
-                                                            echo "<br><a href='" . $urlberita . "'>Selengkapnya!</a>";
-                                                        } else {
-                                                            echo $dp['detail'];
-                                                        }
-                                                        ?>
-                                                    </p>
+                                                </p>
+                                                <div class="mt-3">
+                                                    <a href="<?= $urlberita ?>" class="btn btn-outline-primary btn-sm rounded-pill">Selengkapnya <i class="bi bi-arrow-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,19 +111,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-xl-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Pengunjung</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row" style="text-align:center">
-                                <a href="https://info.flagcounter.com/AYeJ"><img src="https://s01.flagcounter.com/count2/AYeJ/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_20/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-8">
+                <div class="col-12">
                     <h4>Update Kegiatan Terakhir</h4>
                     <div id="daftarlkh"></div>
 
@@ -148,26 +138,7 @@
                 </div>
             <?php } ?>
 
-            <?php if ($lastlogin['status']) { ?>
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Masuk Terakhir</h4>
-                    </div>
-                    <div class="card-content pb-4">
-                        <?php foreach ($lastlogin['db'] as $i => $dp) { ?>
-                            <div class="recent-message d-flex px-4 py-3">
-                                <div class="avatar avatar-lg">
-                                    <img src="<?= base_url($dp['foto']) ?>">
-                                </div>
-                                <div class="name ms-4">
-                                    <h5 class="mb-1"><?= $dp['nama'] ?></h5>
-                                    <div class="text-muted mb-0" style="font-size:12px"><span class="badge bg-success"><i class="bi bi-clock"></i> <?= waktu_lalu($dp['lastlogin']) ?></span></div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
-            <?php } ?>
+
 
             <div class="card">
                 <div class="card-header">
