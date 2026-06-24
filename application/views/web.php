@@ -140,7 +140,26 @@
                 </div>
             <?php } ?>
 
-
+            <?php if ($lastlogin['status']) { ?>
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-transparent border-bottom-0 pb-0">
+                        <h4 class="card-title">Masuk Terakhir</h4>
+                    </div>
+                    <div class="card-content pb-4">
+                        <?php foreach (array_slice($lastlogin['db'], 0, 5) as $i => $dp) { ?>
+                            <div class="recent-message d-flex px-4 py-3 align-items-center">
+                                <div class="avatar avatar-lg">
+                                    <img src="<?= base_url($dp['foto']) ?>" style="object-fit: cover;">
+                                </div>
+                                <div class="name ms-3">
+                                    <h6 class="mb-1 text-truncate" style="max-width: 150px;" title="<?= $dp['nama'] ?>"><?= $dp['nama'] ?></h6>
+                                    <div class="text-muted mb-0" style="font-size:12px"><span class="badge bg-success rounded-pill"><i class="bi bi-clock"></i> <?= waktu_lalu($dp['lastlogin']) ?></span></div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            <?php } ?>
 
             <div class="card">
                 <div class="card-header">
