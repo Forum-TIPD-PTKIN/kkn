@@ -7,8 +7,10 @@
             <div class="col-md-10">
                 <h1 class="display-5 fw-bold text-primary">Portal <?= $this->config->item('app_singkatan') ?></h1>
                 <p class="col-md-10 fs-5 text-muted">Platform terintegrasi pengelolaan Kuliah Kerja Nyata (<?= $this->config->item('app_singkatan') ?>). Silakan jelajahi informasi pendaftaran, kegiatan mahasiswa, dan berita terbaru.</p>
-                <div class="d-flex gap-3 mt-4">
+                <div class="d-flex gap-3 mt-4 flex-wrap">
                     <a href="<?= base_url('login') ?>" class="btn btn-primary btn-lg rounded-pill shadow-sm px-4"><i class="bi bi-box-arrow-in-right"></i> Masuk Sistem</a>
+                    <a href="#" class="btn btn-success btn-lg rounded-pill act-kelompok shadow-sm px-4" data-kategori="teraktif"><i class="bi bi-arrow-up-right"></i> Kelompok Teraktif</a>
+                    <a href="#" class="btn btn-info btn-lg rounded-pill act-aktifitas shadow-sm px-4 text-white" data-kategori="best"><i class="bi bi-graph-up-arrow"></i> Aktifitas Terbaik</a>
                 </div>
             </div>
         </div>
