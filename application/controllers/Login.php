@@ -433,7 +433,7 @@ class Login extends CI_Controller
             if (strlen($nama) > 15)
                 $nama = substr($nama, 0, 12) . "...";
 
-            $myprofilpic = base_url($akun->path);
+            $myprofilpic = empty($akun->path) ? base_url('assets/img/user-avatar.png') : base_url($akun->path);
             if (count($token) > 0 && count($data) > 0)
                 $myprofilpic = $data['picture'];
 
@@ -472,7 +472,7 @@ class Login extends CI_Controller
             if (strlen($nama) > 15)
                 $nama = substr($nama, 0, 12) . "...";
 
-            $myprofilpic = base_url($akun->path);
+            $myprofilpic = empty($akun->path) ? base_url('assets/img/user-avatar.png') : base_url($akun->path);
             if (count($token) > 0 && count($data) > 0)
                 $myprofilpic = $data['picture'];
 
