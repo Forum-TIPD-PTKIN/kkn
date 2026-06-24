@@ -1,6 +1,6 @@
 -- evaluasi definition
 
-CREATE TABLE `evaluasi` (
+CREATE TABLE IF NOT EXISTS `evaluasi` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idkkn` int(11) DEFAULT NULL,
   `judul` varchar(200) DEFAULT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE `evaluasi` (
 
 -- testimoni definition
 
-CREATE TABLE `testimoni` (
+CREATE TABLE IF NOT EXISTS `testimoni` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idkelompok` int(11) DEFAULT NULL,
   `judul` varchar(250) DEFAULT NULL,
