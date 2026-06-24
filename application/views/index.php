@@ -12,6 +12,33 @@
 
     <link rel="stylesheet" href="<?= base_url('templates/mazer/') ?>assets/css/shared/iconly.css">
 
+    <!-- Google Fonts untuk Typografi yang Lebih Menarik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Styling untuk teks logo agar terlihat modern dan premium */
+        .header-top .logo h5 a {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #1E40AF 0%, #3B82F6 50%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .header-top .logo h5 a:hover {
+            opacity: 0.8;
+            background: linear-gradient(90deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+
     <?php include(APPPATH . "views/importhead.php"); ?>
 
 </head>
