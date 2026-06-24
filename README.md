@@ -57,4 +57,4 @@ Masing-masing role akan dihadapkan pada halaman dan fungsionalitas yang berbeda-
 Aplikasi dikembangkan menggunakan CodeIgniter versi 3.1.13. Ikuti lisensi resmi yang disertakan pada struktur direktori CodeIgniter.
 
 ---
-*Dikembangkan oleh Forum TIPD PTKIN*
+*Dikembangkan oleh TIPD IAIN Kendari bersama Forum TIPD PTKIN*
