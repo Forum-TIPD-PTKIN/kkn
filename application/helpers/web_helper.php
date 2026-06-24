@@ -18,6 +18,8 @@ if (!function_exists('allowheader')) {
 		$thisdomain = 'kkn.iainpare.ac.id';
 		$allow = [
 			$thisdomain,
+			'localhost',
+			'127.0.0.1'
 		];
 
 		//debug($_SERVER);

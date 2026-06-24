@@ -1,5 +1,5 @@
 // Function exec ajax
-var vBase_url = "https://kkn.iainpare.ac.id/";
+var vBase_url = "http://localhost:8080/";
 var vTimeout = 10000;
 
 function appAjax(vurl, vdata, vasync = true) {
